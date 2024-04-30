@@ -14,7 +14,9 @@ int main() {
     while (option != 0) {
         cout << "Choose an option (0: end 1:enter filename)\n";
         cin >> option;
+        cout << "Playing Music\n";
         playSound();
+        cout << "Music Finished\n";
     }
 
     return 0;
@@ -25,7 +27,7 @@ int playSound() {
     cout << "Please enter the filename: \n";
     cin >> filename;
 
-    PlaySound(filename.c_str(), NULL, SND_FILENAME);
+    PlaySound(TEXT("song.wav"), NULL, SND_FILENAME | SND_SYNC);
 
     return 0;
 }
