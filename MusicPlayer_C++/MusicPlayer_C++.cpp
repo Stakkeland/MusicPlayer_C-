@@ -8,28 +8,47 @@ using namespace std;
 #pragma comment(lib, "winmm.lib")
 
 int main();
-int playSound();
+int playSound(const wchar_t* filename);
 
 int main() {
     cout << "Welcome\n";
     // Play a WAV file
 
-    int option = 1;
-    while (option != 0) {
-        cout << "Choose an option (0: end 1:enter filename)\n";
-        cin >> option;
-        cout << "Playing Music \n";
-        playSound();
-        cout << "Music Finished \n";
-    }
+    int option;
+    cout << "Choose a song \n 1:Epic \n 2:Thrill\n";
+    cin >> option;
+    cout << "Playing Music \n";
+
+    bool goOn = FALSE;
+    const wchar_t* filename = nullptr;
+    while (goOn == FALSE)
+    {
+        if (option == 1)
+        {
+            filename = L"HOTD_Song.wav";
+            goOn = TRUE;
+        }
+        else if (option == 2)
+        {
+            filename = L"Hardpoints_Song.wav";
+            goOn = TRUE;
+        }
+        else
+        {
+            cout << "Please choose a number that is available";
+            goOn = FALSE;
+        }
+
+    };
+
+    playSound(filename);
+    cout << "Music Finished \n";
+    
 
     return 0;
 }
 
-int playSound() {
-    const wchar_t* filename = L"C:\Users\Sawyer Stakkeland\OneDrive\Documents\BYUI\8. 2024 Spring\Applied Programming_CSE310\MusicPlayer_C++\HOTD Song.wav";
-    cout << "Please enter the filename: \n";
-    //cin >> filename;
+int playSound(const wchar_t* filename) {
 
     PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
