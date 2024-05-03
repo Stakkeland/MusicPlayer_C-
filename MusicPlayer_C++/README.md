@@ -6,7 +6,7 @@ Plays audio from file on PC.
 
 The purpose of this program is to learn some of the basics of C++.
 
-[Software Demo Video](https://youtu.be/CN78pYiBZwI)
+[Software Demo Video](https://youtu.be/T7GOot4OPbM)
 
 [Github Link](https://github.com/Stakkeland/MusicPlayer_C-)
 
