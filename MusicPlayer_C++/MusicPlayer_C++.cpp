@@ -19,9 +19,10 @@ int main() {
     bool goOn = FALSE;
     const wchar_t* filename = nullptr;
 
+    //Main Loop. Menu and call to playSound
     while (goOn == FALSE)
     {
-        cout << "Choose a song \n 0:End \n 1:Epic \n 2:Thrill \n : ";
+        cout << "\nChoose a song \n 0:End \n 1:Epic \n 2:Thrill \n : "; 
         cin >> option;
 
         if (option == 1)
@@ -65,13 +66,12 @@ int playSound(const wchar_t* filename) {
 
     string input;
 
-    cout << "Music playing \nPress enter to stop \n";
-    PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    cout << "\nMusic playing \nPress enter to stop \n";
 
     getline(cin, input);
     PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
     getline(cin, input);
-    PlaySound(0, 0, 0);
+    PlaySound(0, 0, 0); //Stop Music
 
     cout << "Music Finished \n";
 

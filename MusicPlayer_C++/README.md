@@ -14,8 +14,10 @@ The purpose of this program is to learn some of the basics of C++.
 
 Tools used: Visual Studio 2022, Github
 
-Language: Python
+Language: C++
 
 # Useful Websites
 
 [W3 schools C++(https://www.w3schools.com/python/default.asp)
+[Youtube C++(https://www.youtube.com)
+[Microsoft C++ PlaySound(https://learn.microsoft.com/en-us/windows/win32/multimedia/the-playsound-function)
