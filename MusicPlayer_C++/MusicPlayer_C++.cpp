@@ -15,7 +15,7 @@ int main() {
     // Play a WAV file
 
     int option;
-    cout << "Choose a song \n 1:Epic \n 2:Thrill\n";
+    cout << "Choose a song \n 0:End \n 1:Epic \n 2:Thrill\n";
     cin >> option;
     cout << "Playing Music \n";
 
@@ -27,10 +27,19 @@ int main() {
         {
             filename = L"HOTD_Song.wav";
             goOn = TRUE;
+
+            playSound(filename);
         }
         else if (option == 2)
         {
             filename = L"Hardpoints_Song.wav";
+            goOn = TRUE;
+
+            playSound(filename);
+        }
+        else if (option == 0)
+        {
+            cout << "Goodbye!";
             goOn = TRUE;
         }
         else
@@ -40,9 +49,6 @@ int main() {
         }
 
     };
-
-    playSound(filename);
-    cout << "Music Finished \n";
     
 
     return 0;
@@ -63,6 +69,8 @@ int playSound(const wchar_t* filename) {
     PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
     getline(cin, input);
+
+    cout << "Music Finished \n";
 
     return 0;
 }
