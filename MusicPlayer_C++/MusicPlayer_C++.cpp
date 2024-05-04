@@ -8,23 +8,44 @@ using namespace std;
 #pragma comment(lib, "winmm.lib")
 
 int main();
+int menu();
 int playSound(const wchar_t* filename);
 
 int main() {
-    // Play a WAV file
-    cout << "Welcome \n";
 
+    cout << "Welcome! \n";
+    
+    menu();
+    
+    return 0;
+}
+
+/***************************************************
+ * Menu system
+ * Loop until the user quits the program. Song choices
+ * are handpicked for the user.
+ * INPUT
+ *     option : user selected number that corresponds
+ *              to a song
+ *     goOn : Bool where TRUE ends the main loop
+ *     filename : holds the location of the song file
+ *               chosen by user.
+ **************************************************/
+int menu()
+{
     // Variable declaration
     int option;
     bool goOn = FALSE;
     const wchar_t* filename = nullptr;
 
-    //Main Loop. Menu and call to playSound
+    //Main Loop. Menu and call to playSound function
     while (goOn == FALSE)
     {
-        cout << "\nChoose a song \n 0:End \n 1:Epic \n 2:Thrill \n : "; 
+        //Menu output
+        cout << "\nChoose a song \n 0:End \n 1:Epic \n 2:Thrill \n : ";
         cin >> option;
 
+        // If statements depending on number chosen by user.
         if (option == 1)
         {
             filename = L"HOTD_Song.wav";
@@ -51,17 +72,19 @@ int main() {
         }
 
     };
-    
+
     return 0;
 }
 
-/********************************************************************
-*playSound
-*This function plays and stops the song given by the user
-*Press enter to start and stop music
-*input = Enter 
-*
-**********************************************************************/
+/***************************************************
+ * PLAY SOUND FILE
+ * Take file that is chosen by user and play the 
+ * audio within it.
+ * INPUT
+ *     filename : filename in project folder
+ *     input : user can press enter to end song
+ *     PlaySound : Internal function that plays sounds
+ **************************************************/
 int playSound(const wchar_t* filename) {
 
     string input;
@@ -69,6 +92,7 @@ int playSound(const wchar_t* filename) {
     cout << "\nMusic playing \nPress enter to stop \n";
 
     getline(cin, input);
+    // Plays song file
     PlaySound(filename, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
     getline(cin, input);
     PlaySound(0, 0, 0); //Stop Music
